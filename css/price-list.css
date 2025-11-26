@@ -1,0 +1,243 @@
+/* Специфични стилове за ценоразпис */
+.price-panel {
+    background: #ffffff; /* Променен на чисто бял фон за панелите */
+    border-radius: 8px;
+    padding: 0; /* Премахнат padding на общия контейнер */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    position: relative;
+    height: 100%;
+    margin-bottom: 25px;
+    border: 1px solid rgba(230, 240, 250, 0.8);
+}
+
+.price-panel h3 {
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0; /* Премахнато разстоянието между заглавието и съдържанието */
+    padding: 15px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(240, 245, 255, 0.9); /* Запазен светлосин фон за заглавието */
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid rgba(230, 240, 250, 0.9);
+}
+
+.price-panel h3:after {
+    display: none; /* Премахнат градиентът под заглавието */
+}
+
+.price-panel h3 i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+    font-size: 1.3em;
+}
+
+.price-table {
+    width: 100%;
+    padding: 15px 20px; /* Добавен padding в таблицата с цените */
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.05);
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-name {
+    flex: 1;
+    padding-right: 20px;
+    color: var(--text-color);
+}
+
+.price-value {
+    /* Премахнато удебеляването на цените */
+    color: #000000; /* Цените са с черен цвят както е поискано */
+    text-align: right;
+    min-width: 100px;
+}
+
+.price-disclaimer {
+    font-style: italic;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(255, 251, 235, 0.6);
+    border-left: 3px solid var(--secondary-color);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Странично меню със секции на ценоразписа */
+.price-categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.price-categories ul li {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.price-categories ul li a {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    border-radius: 0;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.price-categories ul li:last-child a {
+    border-bottom: none;
+}
+
+/* Икони за категориите */
+.price-categories ul li a:before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    background-color: rgba(66, 179, 229, 0.1);
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Специфични икони */
+.price-categories ul li a[href="#consultations"]::before { content: "\f0f1"; }
+.price-categories ul li a[href="#procedures"]::before { content: "\f0fa"; }
+.price-categories ul li a[href="#surgeries"]::before { content: "\f0f8"; }
+.price-categories ul li a[href="#hospitalization"]::before { content: "\f236"; }
+.price-categories ul li a[href="#grooming"]::before { content: "\f0c4"; }
+.price-categories ul li a[href="#vaccinations"]::before { content: "\f48e"; }
+.price-categories ul li a[href="#diagnostics"]::before { content: "\f0c3"; }
+.price-categories ul li a[href="#dental"]::before { content: "\f0f9"; }
+.price-categories ul li a[href="#anesthesia"]::before { content: "\f21e"; }
+
+/* Стрелка вдясно */
+.price-categories ul li a:after {
+    content: "\f054";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.7rem;
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    color: var(--secondary-color);
+}
+
+/* Hover ефекти */
+.price-categories ul li a:hover {
+    background: linear-gradient(to right, rgba(3, 132, 206, 0.05), rgba(66, 179, 229, 0.12));
+    color: var(--primary-color);
+    padding-left: 24px;
+    padding-right: 45px;
+    box-shadow: none;
+    transform: none;
+}
+
+.price-categories ul li a:hover:before {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.price-categories ul li a:hover:after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Активна категория */
+.price-categories ul li a.active {
+    background: linear-gradient(to right, rgba(49, 86, 163, 0.1), rgba(3, 132, 206, 0.15));
+    color: var(--primary-color);
+    font-weight: 600;
+    padding-left: 24px;
+}
+
+.price-categories ul li a.active:before {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.price-categories ul li a.active:after {
+    opacity: 1;
+    transform: translateX(0);
+    right: 20px;
+}
+
+/* Мобилен дроп даун за категории */
+.mobile-price-categories select {
+    background-color: var(--white);
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 12px 40px 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #dceaf5;
+    width: 100%;
+    margin-bottom: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%233156a3' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px 16px;
+    cursor: pointer;
+}
+
+/* Допълнителни стилове за по-елегантен вид */
+.usluga-main-content {
+    background-color: #ffffff;
+}
+
+.price-item:hover {
+    background-color: rgba(250, 252, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+    .price-item {
+        padding: 12px 0;
+    }
+    
+    .price-panel {
+        padding: 0;
+    }
+    
+    /* Скриваме странично меню на мобилни */
+    .price-categories {
+        display: none;
+    }
+    
+    /* Показваме мобилното падащо меню */
+    .mobile-price-categories {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    /* Скриваме мобилното меню на десктоп */
+    .mobile-price-categories {
+        display: none;
+    }
+}

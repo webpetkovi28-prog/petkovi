@@ -1,0 +1,464 @@
+/* ============================================= */
+/* ===        СТИЛОВЕ ЗА СТРАНИЦИ УСЛУГИ       === */
+/* ============================================= */
+
+/* --- ОСНОВНИ СТИЛОВЕ ЗА ШРИФТ (от вашето изискване) --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    /* Цветовете се дефинират по-долу специфично */
+}
+/* --- КРАЙ НА ОСНОВНИ СТИЛОВЕ --- */
+.usluga-text h2:after {
+  display: none;
+}
+
+.usluga-page-content {
+    padding: 40px 0;
+    background-color: #f9fbfe;
+}
+
+/* По подразбиране скриваме мобилното меню */
+.mobile-services-menu {
+    display: none;
+}
+
+/* --- Десктоп Версия --- */
+@media (min-width: 769px) {
+    /* Възстановяваме Grid Layout */
+    .usluga-layout-grid {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* Лява Колона - Меню (ВИДИМА) */
+    .usluga-sidebar {
+        display: block !important; /* Гарантираме видимост */
+        border: none;
+        border-radius: 12px;
+        padding: 0;
+        background-color: transparent;
+        position: sticky;
+        top: 100px;
+    }
+
+    .usluga-sidebar h3 {
+        font-size: 1.4rem; color: var(--primary-color); margin-top: 0;
+        margin-bottom: 20px; padding: 15px 5px; border-bottom: 2px solid var(--secondary-color);
+        text-align: left; font-weight: 600; position: relative;
+    }
+    .usluga-sidebar h3:after {
+        content: ""; position: absolute; width: 60px; height: 4px;
+        background-color: var(--accent-color); bottom: -2px; left: 0; border-radius: 10px;
+    }
+
+    .usluga-sidebar-menu {
+        list-style: none; padding: 0; margin: 0; border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); background: #fff; overflow: hidden;
+    }
+    .usluga-sidebar-menu li { position: relative; }
+
+    .usluga-sidebar-menu li a {
+        display: flex; align-items: center; padding: 16px 20px; color: var(--text-color);
+        font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid rgba(0,0,0,0.04);
+        transition: all 0.3s ease; border-radius: 0; text-decoration: none;
+        position: relative; overflow: hidden; z-index: 1;
+    }
+    .usluga-sidebar-menu li:last-child a { border-bottom: none; }
+
+    /* Икона за всеки елемент */
+    .usluga-sidebar-menu li a:before {
+        font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 12px;
+        width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;
+        font-size: 0.9rem; border-radius: 50%; background-color: rgba(66, 179, 229, 0.1);
+        color: var(--secondary-color); transition: all 0.3s ease; flex-shrink: 0;
+    }
+    /* Специфични икони за sidebar менюто */
+    .usluga-sidebar-menu li a[href*="hospitalizatsia-statsionar"]::before { content: "\f0f8"; }
+    .usluga-sidebar-menu li a[href*="hotel-za-domashni-lyubimtsi"]::before { content: "\f015"; }
+    .usluga-sidebar-menu li a[href*="patuvane-v-chuzhbina"]::before { content: "\f072"; }
+    .usluga-sidebar-menu li a[href*="digitalna-rentgenoskopia"]::before { content: "\f497"; }
+    .usluga-sidebar-menu li a[href*="laboratoria"]::before { content: "\f0c3"; }
+    .usluga-sidebar-menu li a[href*="mikrochipirane"]::before { content: "\f2db"; }
+    .usluga-sidebar-menu li a[href*="hirurgia"]::before { content: "\f48e"; }
+    .usluga-sidebar-menu li a[href*="saveti-za-otglezhdane"]::before { content: "\f7e6"; }
+    .usluga-sidebar-menu li a[href*="podstrigvane"]::before { content: "\f0c4"; }
+    .usluga-sidebar-menu li a[href*="domashno-poseshtenie"]::before { content: "\e065"; }
+    .usluga-sidebar-menu li a[href*="vtoro-mnenie"]::before { content: "\f086"; }
+
+    /* Стрелка вдясно */
+    .usluga-sidebar-menu li a:after {
+        content: "\f054"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+        font-size: 0.7rem; position: absolute; right: 20px; opacity: 0;
+        transform: translateX(-10px); transition: all 0.3s ease; color: var(--secondary-color);
+    }
+    /* Hover ефекти */
+    .usluga-sidebar-menu li a:hover {
+        background: linear-gradient(to right, rgba(3, 132, 206, 0.05), rgba(66, 179, 229, 0.12));
+        color: var(--primary-color); padding-left: 24px; padding-right: 45px;
+        box-shadow: none; transform: none;
+    }
+    .usluga-sidebar-menu li a:hover:before {
+        background-color: var(--secondary-color); color: white; transform: scale(1.1);
+    }
+    .usluga-sidebar-menu li a:hover:after { opacity: 1; transform: translateX(0); }
+
+    /* Активна страница */
+    .usluga-sidebar-menu li a.active {
+        background: linear-gradient(to right, rgba(49, 86, 163, 0.1), rgba(3, 132, 206, 0.15));
+        color: var(--primary-color); font-weight: 600; padding-left: 24px;
+    }
+    .usluga-sidebar-menu li a.active:before { background-color: var(--primary-color); color: white; }
+    .usluga-sidebar-menu li a.active:after { opacity: 1; transform: translateX(0); right: 20px; }
+
+    /* Дясна Колона - Съдържание */
+    .usluga-main-content {
+        padding: 35px 40px; background-color: var(--white); border-radius: 15px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07); border: 1px solid #e8eef3;
+    }
+    /* Стил на H1 */
+    .usluga-main-content h1 {
+        font-size: 2.1rem; color: var(--primary-color); margin-bottom: 30px;
+        border-bottom: none; padding-bottom: 0; text-align: left; position: relative;
+    }
+    .usluga-main-content h1:after {
+        content: ""; display: block; width: 90px; height: 4px;
+        background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        margin: 18px 0 0 0; border-radius: 2px;
+    }
+    .usluga-content-wrapper { overflow: hidden; padding: 0; }
+    /* Рамка на снимката (БЕЗ outline) */
+    .usluga-image {
+        display: block; float: left; max-width: 48%; height: auto;
+        margin-right: 35px; margin-bottom: 20px; border-radius: 10px;
+        border: 6px solid var(--white);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+    }
+    .usluga-image:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); }
+    /* Текст стилове */
+    .usluga-text {}
+    .usluga-text h2, .usluga-text h3 { color: var(--dark-blue); margin-bottom: 15px; position: relative; padding-bottom: 8px; }
+    .usluga-text h2:after { content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background-color: var(--secondary-color); border-radius: 3px; }
+    .usluga-text h3:after { display: none; }
+    .usluga-text h2 { font-size: 1.5rem; margin-top: 0; }
+    .usluga-text h3 { font-size: 1.3rem; margin-top: 30px; color: var(--accent-color); }
+    .usluga-text p, .usluga-text li { font-size: 0.95rem; line-height: 1.8; color: var(--text-color); margin-bottom: 18px; }
+
+     /* Списък "Хоспитализация включва:" и други подобни - ИКОНИ И ЗА ДЕСКТОП */
+     .mobile-list-intro { display: none; }
+     .service-features-list { list-style: none; margin-left: 0; padding-left: 5px; margin-bottom: 30px; clear: both; }
+     .service-features-list li { margin-bottom: 12px; position: relative; padding-left: 40px; font-weight: 500; min-height: 28px; display: flex; align-items: center; }
+     .service-features-list li::before { font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 1.1em; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; background-color: rgba(66, 179, 229, 0.1); color: var(--secondary-color); border-radius: 50%; }
+     /* Специфични икони за списъци */
+     .service-features-list li.monitoring::before { content: "\f017"; }
+     .service-features-list li.individual-plan::before { content: "\f471"; }
+     .service-features-list li.feeding::before { content: "\f7e8"; }
+     .service-features-list li.reaction::before { content: "\f479"; }
+     .service-features-list li.reports::before { content: "\f0f3"; }
+     .service-features-list li.passport::before { content: "\f5ab"; }
+     .service-features-list li.microchip::before { content: "\f2db"; }
+     .service-features-list li.vaccine::before { content: "\f48e"; }
+     .service-features-list li.parasites::before { content: "\f71d"; }
+     .service-features-list li.serology::before { content: "\f493"; }
+     .service-features-list li.checkup::before { content: "\f0f1"; }
+     .service-features-list li.passport-intl::before { content: "\f5ab"; }
+     .service-features-list li.microchip-intl::before { content: "\f2db"; }
+     .service-features-list li.vaccine-intl::before { content: "\f48e"; }
+     .service-features-list li.parasites-intl::before { content: "\f71d"; }
+     .service-features-list li.checkup-intl::before { content: "\f0f1"; }
+     .service-features-list li.certificate-intl::before { content: "\f0a3"; }
+     .service-features-list li.extra-reqs-intl::before { content: "\f06a"; }
+     .service-features-list li.help-passport::before { content: "\f5ab"; }
+     .service-features-list li.help-chip::before { content: "\f2db"; }
+     .service-features-list li.help-vaccine::before { content: "\f48e"; }
+     .service-features-list li.help-docs::before { content: "\f15c"; }
+     .service-features-list li.help-certs::before { content: "\f0a3"; }
+
+
+    /* Секция Акценти/Предимства */
+    .service-highlights { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 40px 0; clear: both; }
+    .highlight-box { background: linear-gradient(to bottom right, #f5faff, #edf6fd); border-radius: 10px; padding: 25px; box-shadow: 0 6px 18px rgba(66, 179, 229, 0.08); border-left: 4px solid var(--secondary-color); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .highlight-box:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 25px rgba(66, 179, 229, 0.15); }
+    .highlight-box h4 { color: var(--primary-color); font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; margin-top: 0; }
+    .highlight-box h4 i { margin-right: 10px; color: var(--secondary-color); font-size: 1.3em; width: 25px; text-align: center; }
+    .highlight-box p { margin-bottom: 0; font-size: 0.9rem; line-height: 1.6; }
+
+    /* CTA секция - Стил за Десктоп */
+    .service-cta { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 12px; padding: 35px 40px; color: white; margin-top: 40px; position: relative; overflow: hidden; text-align: center; clear: both; }
+    .service-cta::before { content: '\f0f1'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; top: -20px; right: -30px; font-size: 150px; color: rgba(255, 255, 255, 0.08); transform: rotate(-15deg); z-index: 0; }
+    .service-cta h3 { color: white !important; margin-top: 0 !important; margin-bottom: 15px; font-size: 1.5rem; position: relative; z-index: 1; }
+    .service-cta p { color: rgba(255, 255, 255, 0.9); margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
+    .service-cta .btn-white { background-color: white; color: var(--primary-color); padding: 12px 30px; border-radius: 30px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s ease; border: 2px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; z-index: 1; }
+    .service-cta .btn-white:hover { background-color: transparent; border-color: white; color: white; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+} /* Край на @media (min-width: 769px) */
+
+
+/* --- Мобилна Версия --- */
+@media (max-width: 768px) {
+    .usluga-page-content { padding: 20px 0 30px 0; background-color: var(--white); }
+
+    /* СКРИВАМЕ десктоп сайдбара */
+    .usluga-sidebar { display: none !important; }
+
+    /* Премахваме grid структурата */
+    .usluga-layout-grid { display: block; }
+
+    /* Мобилно меню за услуги */
+    .mobile-services-menu {
+        display: flex; flex-direction: column; margin: 0 15px 30px 15px;
+        background: #f8fafd; border-radius: 10px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+        padding: 20px; border: 1px solid #e8eef3;
+    }
+    .mobile-services-menu h3 {
+        font-size: 1.2rem; color: var(--primary-color); margin-top: 0; margin-bottom: 15px;
+        padding-bottom: 10px; border-bottom: 1px solid #d5e3ec; text-align: center;
+    }
+    .mobile-services-menu select {
+        padding: 12px 40px 12px 15px; font-size: 1rem; border: 1px solid #dceaf5; border-radius: 8px;
+        background-color: var(--white); color: var(--text-color); width: 100%; margin-bottom: 0;
+        -webkit-appearance: none; appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%233156a3' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 15px center; background-size: 16px 16px; cursor: pointer;
+    }
+    .mobile-services-menu .btn-view-service { display: none; }
+
+    /* Основно съдържание на мобилни */
+    .usluga-main-content { padding: 0 15px; background-color: transparent; box-shadow: none; border: none; border-radius: 0; }
+    .usluga-main-content h1 { font-size: 1.7rem; margin-bottom: 25px; padding-bottom: 12px; text-align: center; }
+    .usluga-main-content h1:after { width: 70px; height: 3px; margin: 15px auto 0 auto; left: 0; right: 0; }
+    .usluga-content-wrapper { padding: 0; }
+
+    /* Снимката на мобилни (БЕЗ outline) */
+    .usluga-image {
+        float: none; max-width: 100%; width: 100%; margin-right: 0;
+        margin-bottom: 25px; border-radius: 8px; border: 4px solid var(--white);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+     }
+
+    .usluga-text h2 { font-size: 1.4rem; text-align: center; padding-bottom: 10px; margin-bottom: 20px; }
+    .usluga-text h2:after { width: 45px; height: 3px; left: 50%; transform: translateX(-50%); }
+    .usluga-text h3 { font-size: 1.2rem; text-align: left; margin-top: 25px; margin-bottom: 15px; }
+    .usluga-text p, .usluga-text li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 15px; }
+
+    /* Списък "Хоспитализация включва:" - ИКОНИ */
+    .service-features-list li::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.1em;
+        width: 28px;
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(66, 179, 229, 0.1);
+        color: var(--secondary-color);
+        border-radius: 50%;
+    }
+
+    .mobile-list-intro { display: block; font-weight: 600; color: var(--dark-blue); margin-bottom: 10px; text-align: center; font-size: 1.1rem; }
+    .service-features-list { list-style: none; margin-left: 0; padding-left: 0; margin-bottom: 30px; }
+    .service-features-list li { margin-bottom: 15px; position: relative; padding-left: 40px; font-weight: 500; min-height: 28px; display: flex; align-items: center; }
+
+    /* Специфичните икони се наследяват от глобалните правила */
+
+
+    /* Акценти/Предимства */
+    .service-highlights { grid-template-columns: 1fr; gap: 15px; margin: 25px 0; }
+    .highlight-box { padding: 20px; }
+    .highlight-box h4 { font-size: 1.1rem; }
+    .highlight-box h4 i { font-size: 1.2em; }
+    .highlight-box p { font-size: 0.9rem; }
+
+    /* CTA Секция - Прилагаме десктоп стиловете */
+    .service-cta { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 12px; padding: 25px 20px; color: white; margin-top: 30px; position: relative; overflow: hidden; text-align: center; }
+    .service-cta::before { content: '\f0f1'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; top: -15px; right: -25px; font-size: 120px; color: rgba(255, 255, 255, 0.07); transform: rotate(-15deg); z-index: 0; }
+    .service-cta h3 { color: white !important; margin-top: 0 !important; margin-bottom: 15px; font-size: 1.3rem; position: relative; z-index: 1; }
+    .service-cta p { color: rgba(255, 255, 255, 0.9); margin-bottom: 20px; max-width: 100%; margin-left: 0; margin-right: 0; position: relative; z-index: 1; font-size: 0.9rem; }
+    .service-cta .btn-white { background-color: white; color: var(--primary-color); padding: 10px 25px; border-radius: 30px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s ease; border: 2px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; z-index: 1; font-size: 0.9rem; }
+    .service-cta .btn-white:hover { background-color: #f8fafd; border-color: transparent; color: var(--primary-color); transform: none; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+        /* Икони за мобилна версия – Хоспитализация */
+    .service-features-list li.monitoring::before { content: "\f017"; }
+    .service-features-list li.individual-plan::before { content: "\f471"; }
+    .service-features-list li.feeding::before { content: "\f7e8"; }
+    .service-features-list li.reaction::before { content: "\f479"; }
+    .service-features-list li.reports::before { content: "\f0f3"; }
+
+    /* Акценти/Предимства */
+    .service-highlights {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 25px 0;
+    }
+
+    /* Укрепване на стиловете за highlight-box на мобилни */
+    .highlight-box {
+        border-left: 4px solid var(--secondary-color);
+        background: linear-gradient(to bottom right, #f5faff, #edf6fd);
+        box-shadow: 0 6px 18px rgba(66, 179, 229, 0.08);
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+/* ❌ Премахваме border-left от други елементи */
+.usluga-page-content,
+.usluga-layout-grid,
+.usluga-main-content,
+.container,
+.usluga-text {
+    border-left: none !important;
+}
+
+/* ✅ Само highlight-box запазва визуалния стил */
+.highlight-box {
+    border-left: 4px solid var(--secondary-color);
+    background: linear-gradient(to bottom right, #f5faff, #edf6fd);
+    box-shadow: 0 6px 18px rgba(66, 179, 229, 0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+
+} /* Край на @media (max-width: 768px) */
+
+
+/* ============================================= */
+/* ===   СТИЛОВЕ ЗА TIMELINE (Подобрен)       === */
+/* ============================================= */
+.timeline {
+  position: relative; padding-left: 40px; margin: 35px 0; list-style: none;
+}
+.timeline::before {
+  content: ''; position: absolute; left: 12px; top: 5px; bottom: 5px; width: 3px;
+  background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color)); border-radius: 3px;
+}
+.timeline-item {
+  position: relative; margin-bottom: 25px; opacity: 0; transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards; animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-item::before {
+  content: "\f058"; /* Икона по подразбиране */ font-family: "Font Awesome 6 Free"; font-weight: 900;
+  position: absolute; left: -37px; top: 3px; font-size: 17px;
+  color: var(--secondary-color); background-color: var(--white); border-radius: 50%;
+  z-index: 1; width: 24px; height: 24px; display: flex;
+  align-items: center; justify-content: center;
+  box-shadow: 0 0 0 4px var(--white), 0 5px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;
+}
+.timeline-item:hover::before { transform: scale(1.2); color: var(--accent-color); }
+
+.timeline-content {
+  background-color: #f8fafd; padding: 18px 20px; border-radius: 10px;
+  border-left: 3px solid var(--secondary-color); font-size: 0.95rem;
+  line-height: 1.6; color: var(--text-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;
+}
+.timeline-content:hover { box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); transform: translateY(-3px); }
+.timeline-content > *:last-child { margin-bottom: 0; }
+
+/* Специфични икони за timeline (Общо за всички страници) */
+.timeline-item.timeline-surgery::before { content: "\f53d"; }
+.timeline-item.timeline-trauma::before { content: "\f479"; }
+.timeline-item.timeline-infusion::before { content: "\f48e"; }
+.timeline-item.timeline-isolation::before { content: "\f023"; }
+.timeline-item.timeline-diagnostic::before { content: "\f00e"; }
+/* Икони за 'Пътуване в чужбина' */
+.timeline-item.timeline-passport::before { content: "\f5ab"; }
+.timeline-item.timeline-microchip::before { content: "\f2db"; }
+.timeline-item.timeline-vaccine::before { content: "\f48e"; } /* Коригирана икона (спринцовка) */
+.timeline-item.timeline-docs::before { content: "\f15c"; } /* Коригиран селектор и икона */
+.timeline-item.timeline-certs::before { content: "\f0a3"; }
+.timeline-item.timeline-hotel::before { content: "\f594"; } /* Коригирана икона */
+
+
+/* --- Мобилни корекции за Timeline --- */
+@media (max-width: 768px) {
+    .timeline { padding-left: 35px; margin: 25px 0; }
+    .timeline::before { left: 10px; width: 2px; }
+    .timeline-item { margin-bottom: 20px; }
+    .timeline-item::before {
+        left: -30px; top: 5px; font-size: 15px;
+        width: 22px; height: 22px; box-shadow: 0 0 0 3px var(--white), 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+    .timeline-content { padding: 15px; font-size: 0.9rem; }
+}
+/* ============================================= */
+/* ===       КРАЙ: СТИЛОВЕ ЗА TIMELINE        === */
+/* ============================================= */
+
+
+/* ============================================= */
+/* ===   СТИЛОВЕ ЗА EXTRA SMALL (576px)      === */
+/* ============================================= */
+@media (max-width: 576px) {
+    .usluga-page-content { padding: 15px 0 25px 0; }
+    .mobile-services-menu { margin: 0 10px 20px 10px; padding: 15px; }
+    .mobile-services-menu h3 { font-size: 1.1rem; }
+    .mobile-services-menu select { font-size: 0.9rem; padding: 10px 35px 10px 12px; }
+
+    .usluga-main-content { padding: 0 10px; }
+    .usluga-main-content h1 { font-size: 1.5rem; margin-bottom: 20px; padding-bottom: 10px; }
+    .usluga-main-content h1:after { width: 50px; height: 3px; margin-top: 10px; }
+    .usluga-image { margin-bottom: 20px; border-width: 3px; }
+    .usluga-text h2 { font-size: 1.2rem; padding-bottom: 10px; }
+    .usluga-text h2:after { width: 35px; height: 2px; }
+    .usluga-text h3 { font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px; }
+    .usluga-text p, .usluga-text li { font-size: 0.9rem; margin-bottom: 12px; }
+     /* Списък "Хоспитализация включва" */
+     .mobile-list-intro { font-size: 1rem; }
+     .service-features-list li { padding-left: 35px; margin-bottom: 10px; min-height: 24px;}
+     .service-features-list li::before { top: 50%; transform: translateY(-50%); font-size: 1em; width: 24px; height: 24px; }
+    /* Highlights */
+    .service-highlights { gap: 10px; margin: 20px 0; }
+    .highlight-box { padding: 15px; }
+    .highlight-box h4 { font-size: 1rem; }
+    .highlight-box h4 i { font-size: 1.1em; }
+    .highlight-box p { font-size: 0.85rem; }
+    /* Timeline */
+    .timeline { padding-left: 30px; margin: 20px 0; }
+    .timeline::before { left: 8px; }
+    .timeline-item { margin-bottom: 15px; }
+    .timeline-item::before { left: -26px; top: 5px; font-size: 14px; width: 20px; height: 20px; }
+    .timeline-content { padding: 10px 15px; font-size: 0.85rem; }
+    /* CTA */
+    .service-cta { padding: 20px; margin-top: 25px; }
+    .service-cta h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .service-cta p { font-size: 0.85rem; margin-bottom: 15px; }
+    .service-cta .btn-white { font-size: 0.85rem; padding: 8px 20px; }
+}
+/* Специфични икони за timeline */
+.timeline-item.timeline-passport::before { content: "\f5ab"; }  /* паспорт */
+.timeline-item.timeline-microchip::before { content: "\f2db"; } /* чип */
+.timeline-item.timeline-vaccine::before { content: "\f48e"; }   /* ваксина */
+.timeline-item.timeline-docs::before { content: "\f15c"; }      /* документи */
+.timeline-item.timeline-hotel::before { content: "\f594"; }     /* хотел */
+
+/* Списъци с икони за ЕС пътуване */
+.service-features-list li.passport::before { content: "\f5ab"; }
+.service-features-list li.microchip::before { content: "\f2db"; }
+.service-features-list li.vaccine::before { content: "\f48e"; }
+.service-features-list li.parasites::before { content: "\f188"; }
+.service-features-list li.checkup::before { content: "\f21e"; }
+
+/* ============================================= */
+/* ===   КРАЙ: СТИЛОВЕ ЗА EXTRA SMALL (576px) === */
+/* ============================================= */

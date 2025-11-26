@@ -1,0 +1,70 @@
+/* Основни стилове */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+header, footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Стилове за бутони за избор на програма */
+.program-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px;
+}
+
+.program-selector button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.program-selector button:hover {
+  background-color: #0056b3;
+}
+
+/* Стилове за секциите на програмите */
+.program-section {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+.program-section h2 {
+  margin-top: 0;
+}
+
+/* Стилове за резултатите (timeline) */
+.program-result {
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+
+/* Мобилна адаптация */
+@media (max-width: 600px) {
+  .program-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .program-selector button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

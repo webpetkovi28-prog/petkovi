@@ -1,0 +1,993 @@
+:root {
+  --primary-color: #3156a3;
+  --secondary-color: #42b3e5;
+  --accent-color: #0384ce;
+  --dark-blue: #21386e;
+  --light-blue: #e9f4fc;
+  --text-color: #333;
+  --light-text: #777;
+  --light-gray: #f6f6f6;
+  --white: #ffffff;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--primary-color);
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-blue);
+  color: white;
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Старите бутони за споделяне */
+.btn-share {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-share:hover {
+  background-color: white;
+  color: var(--accent-color);
+}
+
+.viber i,
+.whatsapp i {
+  margin-right: 5px;
+}
+
+/* Header */
+.main-header {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  position: relative;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-logo {
+  height: 115px;
+  width: auto;
+  margin-right: 15px;
+}
+
+.site-title h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0;
+}
+
+.emergency-phone {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.phone-button {
+  display: flex;
+  align-items: center;
+}
+
+.btn-separator {
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255,255,255,0.6);
+  margin: 0 8px;
+  border-radius: 4px;
+}
+
+/* Navigation */
+.nav-wrapper {
+  background-color: var(--primary-color);
+  width: 100%;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.main-nav li {
+  position: relative;
+}
+
+.main-nav li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15px;
+  height: 16px;
+  width: 1px;
+  background-color: rgba(255,255,255,0.15);
+}
+
+.main-nav a {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 15px 20px;
+  display: block;
+  transition: var(--transition);
+}
+
+.main-nav a:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Mobile menu icon */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 25px;
+  z-index: 1100;
+}
+
+.main-nav.active {
+  display: block;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: var(--primary-color);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown .dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  font-size: 0.9rem;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+.dropdown .dropdown-menu li:last-child a {
+  border-bottom: none;
+}
+
+.dropdown .dropdown-menu li a:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+/* Hero section */
+.hero-section {
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.hero-image-container {
+  width: 100%;
+  max-height: 440px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Site title mobile - новият елемент за заглавието под hero секцията */
+.site-title-mobile {
+  display: none;
+  text-align: center;
+  padding: 12px 15px;
+  background-color: var(--secondary-color);
+  margin-top: 0;
+}
+
+.site-title-mobile h2 {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Google Maps бутон между заглавието и работното време */
+.maps-button-mobile {
+  display: none;
+  text-align: center;
+  padding: 10px 15px;
+  background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.maps-button-mobile .google-maps-btn {
+  display: inline-block;
+  width: 100%;
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: none;
+  font-weight: 600;
+  padding: 10px 15px;
+  transition: all 0.3s;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.maps-button-mobile .google-maps-btn i {
+  color: var(--accent-color);
+  margin-right: 8px;
+}
+
+.maps-button-mobile .google-maps-btn:hover {
+  background-color: var(--light-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Opening hours */
+.opening-hours-container {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 300px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.opening-hours-box {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--dark-blue);
+}
+
+.box-header i {
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+
+.box-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.opening-hours-list {
+  list-style: none;
+  padding: 15px 20px;
+  transition: max-height 0.3s ease;
+}
+
+.opening-hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.opening-hours-list li:last-child {
+  border-bottom: none;
+}
+
+.hours-toggle {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.1);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.hours-toggle:hover {
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+}
+
+/* Preventive programs */
+.services-section {
+  padding: 60px 0;
+  background-color: var(--white);
+  margin-bottom: 20px; /* Намалено разстояние между секциите (десктоп) */
+}
+
+.program-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.program-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 5px;
+  transition: var(--transition);
+  color: var(--white);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  height: 65px;
+}
+
+.program-item-1 {
+  background-color: #42b3e5;
+}
+
+.program-item-2 {
+  background-color: #3156a3;
+}
+
+.program-item-3 {
+  background-color: #0384ce;
+}
+
+.program-item-4 {
+  background-color: #21386e;
+}
+
+.program-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.program-item-1:hover h3 {
+  color: var(--dark-blue);
+}
+
+.program-icon {
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.program-item:hover .program-icon {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.program-item h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* Extra services */
+.extra-services {
+  padding: 60px 0;
+  background-color: var(--light-blue);
+  margin-bottom: 20px; /* Намалено разстояние между секциите (десктоп) */
+}
+
+.row {
+  display: grid;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.row-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.row-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.row-4 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.service-block {
+  background-color: var(--white);
+  padding: 30px 25px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.service-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--secondary-color);
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.service-block:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.service-block:hover::before {
+  height: 100%;
+  opacity: 0.05;
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(66,179,229,0.3);
+}
+
+.service-block:hover .service-icon {
+  background-color: var(--primary-color);
+  transform: rotateY(360deg);
+  box-shadow: 0 5px 20px rgba(49,86,163,0.4);
+}
+
+.service-block h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.service-block p {
+  font-size: 0.95rem;
+  color: var(--light-text);
+}
+
+/* Doctors */
+.doctors-section {
+  padding: 40px 0;
+  background-color: var(--white);
+  margin-top: 20px; /* Намалено разстояние (десктоп) */
+}
+
+.doctors-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.doctor-card {
+  text-align: center;
+}
+
+.doctor-image {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 5px solid var(--light-blue);
+  transition: var(--transition);
+}
+
+.doctor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-card:hover .doctor-image {
+  border-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+.doctor-card h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.doctor-quote {
+  background-color: var(--light-blue);
+  border-radius: 8px;
+  padding: 15px;
+  position: relative;
+  margin-top: 20px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.doctor-quote i {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.doctor-quote p {
+  font-style: italic;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Contact */
+.contact-section {
+  padding: 60px 0;
+  background-color: var(--light-gray);
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 30px;
+}
+
+.contact-info {
+  background: #0384ce; /* Променен цвят, съвпада с мобилния share box */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  color: white;
+}
+
+.contact-info h3 {
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.contact-info h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: white;
+}
+
+.contact-details {
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.contact-item i {
+  color: white;
+  font-size: 1.2rem;
+  width: 30px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.contact-item p {
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background-color: white;
+  color: #42b3e5;
+}
+
+.contact-map {
+  background: var(--white);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Mobile share box */
+.contact-share-mobile {
+  display: none;
+  background: #0384ce;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.contact-share-mobile h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--dark-blue);
+  border-top: 3px solid var(--secondary-color);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .row-2, .row-4 {
+    grid-template-columns: 1fr;
+  }
+  .row-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Row adjustments for mobile */
+  .row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Header adjustments for mobile */
+  .header-top {
+    padding: 10px;
+    justify-content: flex-start;
+  }
+
+  /* Скрива заглавието в хедъра */
+  .site-title {
+    display: none;
+  }
+
+  /* Показва спешния телефон в хедъра до логото */
+  .emergency-phone {
+    display: block;
+    position: static;
+    transform: none;
+    margin-left: auto;
+    margin-right: 50px; /* Осигурява място за меню бутона */
+  }
+
+  /* Намаляваме размера на логото */
+  .site-logo {
+    height: 60px;
+    margin-right: 5px;
+  }
+
+  /* Намаляваме размера на бутона за телефон */
+  .emergency-phone .phone-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* Намаляваме размера на иконата */
+  .emergency-phone .phone-button i {
+    font-size: 0.9em;
+  }
+
+  /* Хамбургер меню бутон */
+  .menu-toggle {
+    display: block;
+    right: 15px;
+    top: 25px;
+    font-size: 1.5rem;
+  }
+
+  /* Навигационни настройки */
+  .main-nav {
+    display: none;
+    background-color: var(--primary-color);
+    border-radius: 0 0 5px 5px;
+  }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+  }
+
+  .main-nav li {
+    margin: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .main-nav li:not(:last-child)::after {
+    display: none;
+  }
+
+  .main-nav a {
+    padding: 12px 20px;
+  }
+
+  /* Показване на заглавието под HERO секцията */
+  .site-title-mobile {
+    display: block;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  /* Показване на бутона за Google Maps */
+  .maps-button-mobile {
+    display: block;
+  }
+
+  /* Премахваме оригиналния мобилен телефонен бутон */
+  .emergency-phone-mobile {
+    display: none;
+  }
+
+  /* Настройки за HERO секцията */
+  .hero-section {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .opening-hours-container {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .opening-hours-box {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .opening-hours-box.collapsed .opening-hours-list {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+
+  .opening-hours-box:not(.collapsed) .opening-hours-list {
+    padding: 15px 20px;
+  }
+
+  .program-list {
+    grid-template-columns: 1fr;
+  }
+
+  .doctors-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-share-mobile {
+    display: block;
+  }
+
+  /* Намалени отстояния между секциите */
+  .extra-services {
+    margin-bottom: 10px;
+  }
+
+  .doctors-section {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .emergency-phone .phone-button {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  .emergency-phone .btn-separator {
+    margin: 0 5px;
+  }
+
+  .site-logo {
+    height: 50px;
+  }
+
+  .doctor-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

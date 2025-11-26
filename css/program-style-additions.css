@@ -1,0 +1,73 @@
+/* Допълнителни стилове за kuche-vazrastno */
+
+/* Стил за цялостно попълване на форма */
+.form-group.required-field label::after {
+  content: " *";
+  color: #e74c3c;
+}
+
+/* Стилове за timeline секции */
+.timeline-section-divider {
+  position: relative;
+  padding-left: 45px;
+  margin: 25px 0;
+  z-index: 2;
+}
+
+.timeline-section-divider h5 {
+  background-color: #f8f9fa;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  color: #6c757d;
+  font-size: 0.9rem;
+  border: 1px dashed #dee2e6;
+  margin: 0;
+}
+
+/* Стилове за различните типове timeline елементи */
+.timeline-item-last .timeline-item-content {
+  background-color: #f5f9ff;
+  border-left-color: #3156a3;
+}
+
+.timeline-item-last .timeline-item-date {
+  background-color: #3156a3;
+}
+
+.timeline-item-next .timeline-item-content {
+  background-color: #f4fcff;
+  border-left-color: #42b3e5;
+}
+
+.timeline-item-next .timeline-item-date {
+  background-color: #42b3e5;
+}
+
+.timeline-item .timeline-item-icon {
+  color: white;
+}
+
+.timeline-item-date.not-needed {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+/* Модификация на формата за повече полета */
+.prophylactic-form {
+  grid-template-columns: 1fr 1fr;
+}
+
+.prophylactic-form .form-group:nth-child(5),
+.prophylactic-form .form-group:nth-child(6),
+.prophylactic-form .form-group:nth-child(7),
+.prophylactic-form .form-group:nth-child(8),
+.prophylactic-form .form-group:nth-child(9) {
+  grid-column: span 1;
+}
+
+@media (max-width: 768px) {
+  .prophylactic-form .form-group:nth-child(n) {
+    grid-column: span 1;
+  }
+}
